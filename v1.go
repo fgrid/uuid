@@ -44,6 +44,7 @@ func NewV1() *UUID {
 	uuid[6] = (uuid[6] & 0x0f) | 0x10
 	copy(uuid[8:10], s[8:])
 	copy(uuid[10:], mac)
+	uuid.variantRFC1422()
 	return &uuid
 }
 
