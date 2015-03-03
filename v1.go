@@ -10,8 +10,9 @@ import (
 type stamp [10]byte
 
 var (
-	mac     []byte
-	service chan chan stamp
+	mac      []byte
+	requests chan bool
+	answers  chan stamp
 )
 
 const gregorianUnix = 122192928000000000 // nanoseconds between gregorion zero and unix zero
@@ -19,8 +20,9 @@ const gregorianUnix = 122192928000000000 // nanoseconds between gregorion zero a
 func init() {
 	mac = make([]byte, 6)
 	rand.Read(mac)
-	service = make(chan chan stamp)
-	go unique(service)
+	requests = make(chan bool)
+	answers = make(chan stamp)
+	go unique()
 	i, err := net.Interfaces()
 	if err != nil {
 		return
@@ -35,9 +37,8 @@ func init() {
 
 func NewV1() *UUID {
 	var uuid UUID
-	a := make(chan stamp)
-	service <- a
-	s := <-a
+	requests <- true
+	s := <-answers
 	copy(uuid[:4], s[4:])
 	copy(uuid[4:6], s[2:4])
 	copy(uuid[6:8], s[:2])
@@ -48,26 +49,26 @@ func NewV1() *UUID {
 	return &uuid
 }
 
-func unique(service chan chan stamp) {
+func unique() {
 	var (
-		lastNanoTicks  uint64
-		clock_sequence [2]byte
+		lastNanoTicks uint64
+		clockSequence [2]byte
 	)
-	rand.Read(clock_sequence[:])
+	rand.Read(clockSequence[:])
 
-	for c := range service {
+	for _ = range requests {
 		var s stamp
 		nanoTicks := uint64((time.Now().UTC().UnixNano() / 100) + gregorianUnix)
 		if nanoTicks < lastNanoTicks {
 			lastNanoTicks = nanoTicks
-			rand.Read(clock_sequence[:])
+			rand.Read(clockSequence[:])
 		} else if nanoTicks == lastNanoTicks {
 			lastNanoTicks = nanoTicks + 1
 		} else {
 			lastNanoTicks = nanoTicks
 		}
 		binary.BigEndian.PutUint64(s[:], lastNanoTicks)
-		copy(s[8:], clock_sequence[:])
-		c <- s
+		copy(s[8:], clockSequence[:])
+		answers <- s
 	}
 }
