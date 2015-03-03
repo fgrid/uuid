@@ -35,6 +35,9 @@ func init() {
 	}
 }
 
+// NewV1 creates a new UUID with variant 1 as described in RFC 4122.
+// Variant 1 is based on hosts MAC address and actual timestamp (as count of 100-nanosecond intervals since
+// 00:00:00.00, 15 October 1582 (the date of Gregorian reform to the Christian calendar).
 func NewV1() *UUID {
 	var uuid UUID
 	requests <- true

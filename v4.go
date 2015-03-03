@@ -2,6 +2,7 @@ package uuid
 
 import "crypto/rand"
 
+// NewV4 creates a new UUID with variant 4 as described in RFC 4122. Variant 4 based on pure random bytes.
 func NewV4() *UUID {
 	buf := make([]byte, 16)
 	rand.Read(buf)
