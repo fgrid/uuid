@@ -13,4 +13,4 @@ golang uuid generator
   ```
 
 # badges
-[![status](https://sourcegraph.com/api/repos/github.com/fgrid/uuid/.badges/status.svg)](https://sourcegraph.com/github.com/fgrid/uuid) [![library users](https://sourcegraph.com/api/repos/github.com/fgrid/uuid/.badges/library-users.svg)](https://sourcegraph.com/github.com/fgrid/uuid) [![dependents](https://sourcegraph.com/api/repos/github.com/fgrid/uuid/.badges/dependents.svg)](https://sourcegraph.com/github.com/fgrid/uuid)
+[![status](https://sourcegraph.com/api/repos/github.com/fgrid/uuid/.badges/status.svg)](https://sourcegraph.com/github.com/fgrid/uuid) [![library users](https://sourcegraph.com/api/repos/github.com/fgrid/uuid/.badges/library-users.svg)](https://sourcegraph.com/github.com/fgrid/uuid) [![dependents](https://sourcegraph.com/api/repos/github.com/fgrid/uuid/.badges/dependents.svg)](https://sourcegraph.com/github.com/fgrid/uuid) [![views](https://sourcegraph.com/api/repos/github.com/fgrid/uuid/.counters/views.svg)](https://sourcegraph.com/github.com/fgrid/uuid)
