@@ -13,6 +13,9 @@ golang uuid generator
   BenchmarkNewV4	 1000000	      1942 ns/op
   BenchmarkNewV5	 2000000	       784 ns/op
   ```
+## documentation
+* @[Sourcegraph](http://sourcegraph.com/github.com/fgrid/uuid)
+
 ## links
 * [RFC 4122](http://tools.ietf.org/html/rfc4122)
 
