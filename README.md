@@ -8,8 +8,10 @@ golang uuid generator
 
 # benchmarks
   ```
-  BenchmarkNewV1	 2000000	       932 ns/op
-  BenchmarkNewV4	 1000000	      1932 ns/op
+  BenchmarkNewV1	 2000000	       725 ns/op
+  BenchmarkNewV3	 2000000	       746 ns/op
+  BenchmarkNewV4	 1000000	      1942 ns/op
+  BenchmarkNewV5	 2000000	       784 ns/op
   ```
 
 # badges

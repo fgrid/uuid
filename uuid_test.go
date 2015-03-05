@@ -1,6 +1,9 @@
 package uuid
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestVersion(t *testing.T) {
 	uuid := UUID{
@@ -30,4 +33,10 @@ func TestVersion(t *testing.T) {
 	if uuid.Version() != 5 {
 		t.Errorf("invalid version %d - expected 5", uuid.Version())
 	}
+}
+
+func ExampleString_NIL() {
+	fmt.Printf("NIL-UUID: %s", NIL.String())
+	// Output:
+	// NIL-UUID: 00000000-0000-0000-0000-000000000000
 }
