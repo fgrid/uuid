@@ -59,7 +59,7 @@ func unique() {
 	)
 	rand.Read(clockSequence[:])
 
-	for _ = range requests {
+	for range requests {
 		var s stamp
 		nanoTicks := uint64((time.Now().UTC().UnixNano() / 100) + gregorianUnix)
 		if nanoTicks < lastNanoTicks {
