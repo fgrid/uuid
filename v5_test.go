@@ -16,7 +16,7 @@ func TestNewV5(t *testing.T) {
 
 func BenchmarkNewV5(b *testing.B) {
 	test := NewNamespaceUUID("test")
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		NewV5(test, []byte("example"))
 	}
 }

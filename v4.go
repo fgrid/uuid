@@ -9,6 +9,6 @@ func NewV4() *UUID {
 	buf[6] = (buf[6] & 0x0f) | 0x40
 	var uuid UUID
 	copy(uuid[:], buf[:])
-	uuid.variantRFC4122()
+	uuid.variantRFC9562()
 	return &uuid
 }

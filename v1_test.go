@@ -11,7 +11,7 @@ func TestNewV1(t *testing.T) {
 }
 
 func BenchmarkNewV1(b *testing.B) {
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		NewV1()
 	}
 }

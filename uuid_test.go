@@ -35,7 +35,7 @@ func TestVersion(t *testing.T) {
 	}
 }
 
-func ExampleString_NIL() {
+func ExampleNIL_String() {
 	fmt.Printf("NIL-UUID: %s", NIL.String())
 	// Output:
 	// NIL-UUID: 00000000-0000-0000-0000-000000000000

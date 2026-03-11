@@ -13,7 +13,7 @@ func TestNewV3(t *testing.T) {
 
 func BenchmarkNewV3(b *testing.B) {
 	test := NewNamespaceUUID("test")
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		NewV3(test, []byte("example"))
 	}
 }

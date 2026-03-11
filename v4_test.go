@@ -11,7 +11,7 @@ func TestNewV4(t *testing.T) {
 }
 
 func BenchmarkNewV4(b *testing.B) {
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		NewV4()
 	}
 }

@@ -19,6 +19,6 @@ func newByHash(hash hash.Hash, namespace *UUID, name []byte) *UUID {
 
 	var uuid UUID
 	copy(uuid[:], hash.Sum(nil)[:16])
-	uuid.variantRFC4122()
+	uuid.variantRFC9562()
 	return &uuid
 }
